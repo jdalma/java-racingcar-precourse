@@ -18,13 +18,13 @@ class ForwardTest {
 
     @Nested
     @DisplayName("move()")
-    class Describe_MoveMethod{
+    class Describe_MoveMethod {
 
         private final int moveCount = 10;
 
         @Test
         @DisplayName("전진 횟수를 증가시킨다.")
-        void It_MoveCount(){
+        void It_MoveCount() {
             for (int i = 1; i <= moveCount; i++) {
                 assertThat(forward.move()).isEqualTo(i);
             }
@@ -34,14 +34,14 @@ class ForwardTest {
 
     @Nested
     @DisplayName("moveToDash()")
-    class Context_MoveToDashMethod{
+    class Context_MoveToDashMethod {
 
         private final int moveCount = 5;
         private final String dash = "-----";
 
         @Test
         @DisplayName("'-'를 전진 횟수 만큼 문자열로 반환한다.")
-        void It_ReturnDash(){
+        void It_ReturnDash() {
             for (int i = 1; i <= moveCount; i++) {
                 forward.move();
             }
