@@ -16,13 +16,21 @@ class CarNameTest {
     class Describe_CarNameConstructor{
 
         @Nested
-        @DisplayName("자동차 이름이 null이라면")
-        class Context_NameIsNull{
+        @DisplayName("자동차 이름이 null,공백 또는 사이즈가 0 이라면")
+        class Context_NameIsNullOrSizeZeroOrWhitespace{
 
             @Test
             @DisplayName("자동차 이름을 입력하라는 예외를 던진다.")
             void It_ThrowException(){
                 assertThatThrownBy(() -> new CarName(null))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage(NAME_NULL_EXCEPTION);
+
+                assertThatThrownBy(() -> new CarName(""))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage(NAME_NULL_EXCEPTION);
+
+                assertThatThrownBy(() -> new CarName(" "))
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessage(NAME_NULL_EXCEPTION);
             }
