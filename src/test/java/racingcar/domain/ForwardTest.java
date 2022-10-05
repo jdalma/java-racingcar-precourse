@@ -26,7 +26,7 @@ class ForwardTest {
         @DisplayName("전진 횟수를 증가시킨다.")
         void It_MoveCount(){
             for (int i = 1; i <= moveCount; i++) {
-                forward.move();
+                assertThat(forward.move()).isEqualTo(i);
             }
             assertThat(forward.getCount()).isEqualTo(moveCount);
         }

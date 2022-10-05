@@ -7,8 +7,9 @@ public class Forward {
         this.count = 0;
     }
 
-    public void move() {
+    public int move() {
         this.count++;
+        return getCount();
     }
 
     public String moveToDash() {
