@@ -13,17 +13,17 @@ public class Car {
         return String.format("%s : %s", this.name.getName(), this.forward.moveToDash());
     }
 
-    public int moveForward() {
-        return this.forward.move();
+    public void move(int number) {
+        if (number >= 4) {
+            moveForward();
+        }
+    }
+
+    private void moveForward() {
+        this.forward.move();
     }
 
     public String getName() {
         return this.name.getName();
-    }
-
-    public void move(int number) {
-        if (number >= 4) {
-           moveForward();
-        }
     }
 }

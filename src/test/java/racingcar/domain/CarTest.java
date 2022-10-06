@@ -61,22 +61,6 @@ class CarTest {
     }
 
     @Nested
-    @DisplayName("moveForward()")
-    class Describe_MoveForwardMethod {
-
-        private final Car car = new Car("test");
-        private final int forward = 5;
-
-        @Test
-        @DisplayName("호출 횟수만큼 전진한다.")
-        void It_CarMoveForward() {
-            for (int i = 1; i <= forward; i++) {
-                assertThat(car.moveForward()).isEqualTo(i);
-            }
-        }
-    }
-
-    @Nested
     @DisplayName("print()")
     class Describe_PrintMethod {
 
@@ -88,7 +72,7 @@ class CarTest {
         @BeforeEach
         void setUp() {
             for (int i = 1; i <= forward; i++) {
-                car.moveForward();
+                car.move(forward);
             }
         }
 
