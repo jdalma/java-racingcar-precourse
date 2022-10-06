@@ -13,8 +13,8 @@ public class Car {
         return String.format("%s : %s", this.name.getName(), this.forward.moveToDash());
     }
 
-    public void move(int number) {
-        if (number >= 4) {
+    public void move(int number , CarForwardCondition strategy) {
+        if (strategy.isMoveable(number)) {
             moveForward();
         }
     }

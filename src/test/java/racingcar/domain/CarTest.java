@@ -72,7 +72,7 @@ class CarTest {
         @BeforeEach
         void setUp() {
             for (int i = 1; i <= forward; i++) {
-                car.move(forward);
+                car.move(forward , new CarForwardStrategy());
             }
         }
 
@@ -99,7 +99,7 @@ class CarTest {
             @DisplayName("앞으로 전진한다.")
             void It_MoveForward(){
                 Car car = new Car(name);
-                car.move(number);
+                car.move(number , new CarForwardStrategy());
 
                 assertThat(car.print()).isEqualTo(expect);
             }
