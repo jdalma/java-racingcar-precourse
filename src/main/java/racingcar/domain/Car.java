@@ -20,4 +20,10 @@ public class Car {
     public String getName() {
         return this.name.getName();
     }
+
+    public void move(int number) {
+        if (number >= 4) {
+           moveForward();
+        }
+    }
 }
