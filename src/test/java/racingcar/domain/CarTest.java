@@ -72,7 +72,7 @@ class CarTest {
         @BeforeEach
         void setUp() {
             for (int i = 1; i <= forward; i++) {
-                car.move(forward , new CarForwardStrategy());
+                car.move(forward, new CarForwardStrategy());
             }
         }
 
@@ -85,21 +85,21 @@ class CarTest {
 
     @Nested
     @DisplayName("move()")
-    class Describe_MoveMethod{
+    class Describe_MoveMethod {
 
         @Nested
         @DisplayName("전달받은 숫자가 4 이상이라면")
-        class Context_NumberIsMoreThan4{
+        class Context_NumberIsMoreThan4 {
 
             private final String name = "test";
-            private final String expect = String.format("%s : -" , name);
+            private final String expect = String.format("%s : -", name);
             private final int number = 4;
 
             @Test
             @DisplayName("앞으로 전진한다.")
-            void It_MoveForward(){
+            void It_MoveForward() {
                 Car car = new Car(name);
-                car.move(number , new CarForwardStrategy());
+                car.move(number, new CarForwardStrategy());
 
                 assertThat(car.print()).isEqualTo(expect);
             }
