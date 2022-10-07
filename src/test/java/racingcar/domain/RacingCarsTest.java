@@ -69,30 +69,6 @@ class RacingCarsTest {
     }
 
     @Nested
-    @DisplayName("getAllCarsPrint()")
-    class Describe_GetAllCarsPrintMethod {
-
-        @Nested
-        @DisplayName("자동차들이 존재한다면")
-        class Context_ExistedCars {
-
-            private final String carName = "aaa,bbb,cccc,dd,e";
-            private final RacingCars racingCars = new RacingCars(carName);
-
-            @Test
-            @DisplayName("{자동차 이름} : {전진한 대시 수} 형식으로 문자열을 반환한다.")
-            void It_PrintCar() {
-                String[] names = carName.split(",");
-                String[] carsPrint = racingCars.getAllCarsPrint().split("\n");
-                for (int i = 0; i < names.length; i++) {
-                    String expect = String.format("%s : ", names[i]);
-                    assertThat(carsPrint[i]).isEqualTo(expect);
-                }
-            }
-        }
-    }
-
-    @Nested
     @DisplayName("finish()")
     class Describe_FinishMethod{
 

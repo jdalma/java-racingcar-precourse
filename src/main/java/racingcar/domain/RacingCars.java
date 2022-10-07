@@ -26,14 +26,6 @@ public class RacingCars {
         return this.cars.size() == number;
     }
 
-    public String getAllCarsPrint() {
-        StringBuilder sb = new StringBuilder();
-        for (Car car : cars) {
-            sb.append(car.print()).append("\n");
-        }
-        return sb.toString();
-    }
-
     public String finish() {
         if (cars.size() <= 0) {
             return "";
