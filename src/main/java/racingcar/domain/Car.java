@@ -1,17 +1,12 @@
 package racingcar.domain;
 
-public class Car implements Comparable<Car> {
+public class Car {
     private final CarName name;
     private final Forward forward;
 
     public Car(String name) {
         this.name = new CarName(name);
         this.forward = new Forward();
-    }
-
-    @Override
-    public int compareTo(Car o) {
-        return o.forward.getCount() - this.forward.getCount();
     }
 
     public void move(int number , CarForwardCondition strategy) {
