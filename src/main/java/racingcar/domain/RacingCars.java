@@ -14,17 +14,11 @@ public class RacingCars {
         return this.cars.size() == number;
     }
 
-    public String finish() {
+    public String finish(WinnerCondition condition) {
         if (cars.size() <= 0) {
             return "";
         }
-
-        StringBuilder result = new StringBuilder();
-        int maxScore = getMaxForwardCount();
-        for (Car car : cars) {
-            result.append(car.toStringIfWinner(maxScore)).append("\n");
-        }
-        return result.toString();
+        return condition.getWinners(this.cars, getMaxForwardCount());
     }
 
     private int getMaxForwardCount() {

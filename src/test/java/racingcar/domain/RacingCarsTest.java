@@ -78,6 +78,7 @@ class RacingCarsTest {
 
             private final String carNames = "test1,test2,test3,test4,test5";
             private final RacingCars racingCars = new RacingCars(carNames);
+            private final WinnerCondition condition = new RacingWinnerMaxForwardStrategy();
             private String expect;
 
             @BeforeEach
@@ -93,7 +94,7 @@ class RacingCarsTest {
             @Test
             @DisplayName("가장 멀리 간 우승자들의 정보를 문자열로 반환한다.")
             void It_FindWinners(){
-                assertThat(racingCars.finish()).isEqualTo(expect);
+                assertThat(racingCars.finish(condition)).isEqualTo(expect);
             }
         }
     }
