@@ -61,29 +61,6 @@ class CarTest {
     }
 
     @Nested
-    @DisplayName("print()")
-    class Describe_PrintMethod {
-
-        private final String name = "abcde";
-        private final int forward = 5;
-        private final String expect = String.format("%s : %s", name, "-----");
-        private Car car = new Car(name);
-
-        @BeforeEach
-        void setUp() {
-            for (int i = 1; i <= forward; i++) {
-                car.move(forward, new CarForwardStrategy());
-            }
-        }
-
-        @Test
-        @DisplayName("'{자동차 이름} : {전진 횟수 대시}' 형식으로 출력한다.")
-        void It_Print() {
-            assertThat(car.print()).isEqualTo(expect);
-        }
-    }
-
-    @Nested
     @DisplayName("move()")
     class Describe_MoveMethod {
 
@@ -94,6 +71,7 @@ class CarTest {
             private final String name = "test";
             private final String expect = String.format("%s : -", name);
             private final int number = 4;
+            private final int move = 1;
 
             @Test
             @DisplayName("앞으로 전진한다.")
@@ -101,7 +79,7 @@ class CarTest {
                 Car car = new Car(name);
                 car.move(number, new CarForwardStrategy());
 
-                assertThat(car.print()).isEqualTo(expect);
+                assertThat(car.toStringIfWinner(move)).isEqualTo(expect);
             }
         }
     }

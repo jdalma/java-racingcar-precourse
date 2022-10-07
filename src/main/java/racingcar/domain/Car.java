@@ -9,7 +9,7 @@ public class Car implements Comparable<Car> {
         this.forward = new Forward();
     }
 
-    public String print() {
+    private String print() {
         return String.format("%s : %s", this.name.getName(), this.forward.moveToDash());
     }
 
