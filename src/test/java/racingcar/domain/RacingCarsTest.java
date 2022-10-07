@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -87,6 +88,36 @@ class RacingCarsTest {
                     String expect = String.format("%s : ", names[i]);
                     assertThat(carsPrint[i]).isEqualTo(expect);
                 }
+            }
+        }
+    }
+
+    @Nested
+    @DisplayName("finish()")
+    class Describe_FinishMethod{
+
+        @Nested
+        @DisplayName("자동차들이 존재한다면")
+        class Context_ExistedCars{
+
+            private final String carNames = "test1,test2,test3,test4,test5";
+            private final RacingCars racingCars = new RacingCars(carNames);
+            private String expect;
+
+            @BeforeEach
+            void setUp() {
+                StringBuilder sb = new StringBuilder();
+                String[] names = carNames.split(",");
+                for (String name : names) {
+                    sb.append(String.format("%s : %s\n", name, ""));
+                }
+                expect = sb.toString();
+            }
+
+            @Test
+            @DisplayName("가장 멀리 간 우승자들의 정보를 문자열로 반환한다.")
+            void It_FindWinners(){
+                assertThat(racingCars.finish()).isEqualTo(expect);
             }
         }
     }

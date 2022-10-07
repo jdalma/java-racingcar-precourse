@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class RacingCars {
@@ -31,5 +32,18 @@ public class RacingCars {
             sb.append(car.print()).append("\n");
         }
         return sb.toString();
+    }
+
+    public String finish() {
+        if (cars.size() <= 0) {
+            return "";
+        }
+        Collections.sort(cars);
+        StringBuilder result = new StringBuilder();
+        int maxScore = cars.get(0).getForwardCount();
+        for (Car car : cars) {
+            result.append(car.toStringIfWinner(maxScore)).append("\n");
+        }
+        return result.toString();
     }
 }

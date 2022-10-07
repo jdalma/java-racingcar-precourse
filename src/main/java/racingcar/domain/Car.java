@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private final CarName name;
     private final Forward forward;
 
@@ -23,7 +23,23 @@ public class Car {
         this.forward.move();
     }
 
+    @Override
+    public int compareTo(Car o) {
+        return o.forward.getCount() - this.forward.getCount();
+    }
+
     public String getName() {
         return this.name.getName();
+    }
+
+    public int getForwardCount() {
+        return this.forward.getCount();
+    }
+
+    public String toStringIfWinner(int maxScore) {
+        if (this.forward.getCount() >= maxScore) {
+            return print();
+        }
+        return "";
     }
 }
