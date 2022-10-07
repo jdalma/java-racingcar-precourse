@@ -9,8 +9,9 @@ public class Car implements Comparable<Car> {
         this.forward = new Forward();
     }
 
-    private String print() {
-        return String.format("%s : %s", this.name.getName(), this.forward.moveToDash());
+    @Override
+    public int compareTo(Car o) {
+        return o.forward.getCount() - this.forward.getCount();
     }
 
     public void move(int number , CarForwardCondition strategy) {
@@ -19,13 +20,19 @@ public class Car implements Comparable<Car> {
         }
     }
 
-    private void moveForward() {
-        this.forward.move();
+    public String toStringIfWinner(int maxScore) {
+        if (this.forward.getCount() >= maxScore) {
+            return print();
+        }
+        return "";
     }
 
-    @Override
-    public int compareTo(Car o) {
-        return o.forward.getCount() - this.forward.getCount();
+    private String print() {
+        return String.format("%s : %s", this.name.getName(), this.forward.moveToDash());
+    }
+
+    private void moveForward() {
+        this.forward.move();
     }
 
     public String getName() {
@@ -34,12 +41,5 @@ public class Car implements Comparable<Car> {
 
     public int getForwardCount() {
         return this.forward.getCount();
-    }
-
-    public String toStringIfWinner(int maxScore) {
-        if (this.forward.getCount() >= maxScore) {
-            return print();
-        }
-        return "";
     }
 }
