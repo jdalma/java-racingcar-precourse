@@ -70,11 +70,11 @@ class RacingCarsTest {
 
     @Nested
     @DisplayName("finish()")
-    class Describe_FinishMethod{
+    class Describe_FinishMethod {
 
         @Nested
         @DisplayName("자동차들이 존재한다면")
-        class Context_ExistedCars{
+        class Context_ExistedCars {
 
             private final String carNames = "test1,test2,test3,test4,test5";
             private final RacingCars racingCars = new RacingCars(carNames);
@@ -93,8 +93,40 @@ class RacingCarsTest {
 
             @Test
             @DisplayName("가장 멀리 간 우승자들의 정보를 문자열로 반환한다.")
-            void It_FindWinners(){
+            void It_FindWinners() {
                 assertThat(racingCars.finish(condition)).isEqualTo(expect);
+            }
+        }
+    }
+
+    @Nested
+    @DisplayName("race()")
+    class Describe_RaceMethod {
+
+        @Nested
+        @DisplayName("숫자가 4이상이라면")
+        class Context_RandomNumberMoreThanFour {
+
+            private final String carNames = "test1,test2,test3,test4,test5";
+            private final int[] randomNumbers = new int[] {3,5,6,3,4};
+            private String expect;
+
+            @BeforeEach
+            void setUp() {
+                StringBuilder sb = new StringBuilder();
+                sb.append("test1 : \n")
+                    .append("test2 : -\n")
+                    .append("test3 : -\n")
+                    .append("test4 : \n")
+                    .append("test5 : -\n");
+                expect = sb.toString();
+            }
+
+            @Test
+            @DisplayName("자동차가 전진한다.")
+            void It_ForwardCar() {
+                RacingCarsOnlyTest testService = new RacingCarsOnlyTest(carNames);
+                assertThat(testService.race(randomNumbers)).isEqualTo(expect);
             }
         }
     }

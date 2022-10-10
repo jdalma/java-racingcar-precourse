@@ -1,10 +1,15 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import static racingcar.domain.RacingCarRule.CAR_RANDOM_MAX_NUMBER;
+import static racingcar.domain.RacingCarRule.CAR_RANDOM_MIN_NUMBER;
+
 public class RacingCars {
-    private final List<Car> cars;
+    protected final List<Car> cars;
 
     public RacingCars(String name) {
         this.cars = separateNameAndMakeCars(name);
@@ -19,6 +24,15 @@ public class RacingCars {
             return "";
         }
         return condition.getWinners(this.cars, getMaxForwardCount());
+    }
+
+    public String race() {
+        StringBuilder sb = new StringBuilder();
+        for (Car car : cars) {
+            int randomNumber = Randoms.pickNumberInRange(CAR_RANDOM_MIN_NUMBER, CAR_RANDOM_MAX_NUMBER);
+            sb.append(car.move(randomNumber, new CarForwardStrategy())).append("\n");
+        }
+        return sb.toString();
     }
 
     private int getMaxForwardCount() {
