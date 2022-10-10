@@ -5,6 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.util.StringJoiner;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.domain.RacingCarRule.NAME_LENGTH_EXCEPTION;
@@ -83,12 +85,12 @@ class RacingCarsTest {
 
             @BeforeEach
             void setUp() {
-                StringBuilder sb = new StringBuilder();
+                StringJoiner sj = new StringJoiner(", ");
                 String[] names = carNames.split(",");
                 for (String name : names) {
-                    sb.append(String.format("%s : %s\n", name, ""));
+                    sj.add(name);
                 }
-                expect = sb.toString();
+                expect = sj.toString();
             }
 
             @Test

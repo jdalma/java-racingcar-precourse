@@ -7,7 +7,7 @@ public class RacingWinnerMaxForwardStrategy implements WinnerCondition {
 
     @Override
     public String getWinners(List<Car> cars, int maxForwardCount) {
-        StringJoiner result = new StringJoiner("\n");
+        StringJoiner result = new StringJoiner(", ");
         for (Car car : cars) {
             result.add(car.toStringIfWinner(maxForwardCount));
         }
