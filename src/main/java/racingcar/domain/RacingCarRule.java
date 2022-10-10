@@ -11,4 +11,5 @@ public class RacingCarRule {
     public static final String NAME_LENGTH_EXCEPTION = String.format("%s 자동차 이름은 1글자 이상, 5글자 이하로 작셩하여 주세요.", ERROR);
     public static final String RACING_CAR_NAME_INPUT = "경주할 자동차 이름을 입하세요.(이름은 쉼표(,) 기준으로 구분)";
     public static final String INPUT_NUMBER_TO_TRY = "시도활 회수는 몇회 인가요?";
+    public static final String GAME_FINISH = "최종 우승자 : ";
 }
