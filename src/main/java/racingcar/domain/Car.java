@@ -9,10 +9,11 @@ public class Car {
         this.forward = new Forward();
     }
 
-    public void move(int number , CarForwardCondition strategy) {
+    public String move(int number , CarForwardCondition strategy) {
         if (strategy.isMoveable(number)) {
             moveForward();
         }
+        return print();
     }
 
     public String toStringIfWinner(int maxScore) {
