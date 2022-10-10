@@ -4,7 +4,7 @@ import static racingcar.domain.RacingCarRule.NUMBER_TO_TRY_EXCEPTION;
 
 public class Number {
     public static final String ONLY_NUMBER_REGEX = "^[0-9]+";
-    private final int number;
+    private int number;
 
     public Number(String line) {
         if (isContainsNonNumeric(line)) {
@@ -15,6 +15,14 @@ public class Number {
 
     public boolean isEqual(int number) {
         return this.number == number;
+    }
+
+    public boolean isPositive() {
+        return this.number > 0;
+    }
+
+    public void decrease() {
+        this.number--;
     }
 
     private boolean isContainsNonNumeric(String line) {
