@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -69,7 +68,6 @@ class CarTest {
         class Context_NumberIsMoreThan4 {
 
             private final String name = "test";
-            private final String expect = String.format("%s : -", name);
             private final int number = 4;
             private final int move = 1;
 
@@ -79,7 +77,7 @@ class CarTest {
                 Car car = new Car(name);
                 car.move(number, new CarForwardStrategy());
 
-                assertThat(car.toStringIfWinner(move)).isEqualTo(expect);
+                assertThat(car.toStringIfWinner(move)).isEqualTo(name);
             }
         }
     }
