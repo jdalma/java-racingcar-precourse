@@ -18,7 +18,7 @@ public class Car {
 
     public String toStringIfWinner(int maxScore) {
         if (this.forward.getCount() >= maxScore) {
-            return print();
+            return this.getName();
         }
         return "";
     }
